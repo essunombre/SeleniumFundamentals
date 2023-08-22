@@ -1,0 +1,39 @@
+﻿I am going to test my notes on github
+
+Ok this is going to be for automation
+
+I am using nUnit, I donwloaded the nuGet SeleniumSupport SeleniumWebdriver and WebDriverManager
+
+WHERE TO FIND THE RESULTS?
+under Output selecting Tests I can see the execution.
+
+STARTING THE TEST:
+I must add the driver new ChromeDriver(); under the SetUp
+
+driver.Close(); //only one window
+driver.Quit(); //2windows
+
+But I want to learn more from those 2 methods
+
+Always remember to add the nugets correctly.
+
+LOCATORS:
+-Xpath
+-Css
+-ID
+-ClassName
+-Name
+-TagName
+-linkText
+
+CSS SELECTOR
+tagname[attribute='value']
+ie: input[id='signInBtn']
+
+XPATH
+//tagname[@attribute='value']
+ie: //input[@id='signInBtn']
+
+
+Jose Jose
+------------
