@@ -50,6 +50,17 @@ namespace SeleniumLearning
             //css selector
             driver.FindElement(By.CssSelector("input[id='signInBtn']")).Click();
 
+            Thread.Sleep(3000);
+            String errorMessage = driver.FindElement(By.ClassName("alert-danger")).Text;
+            TestContext.Progress.WriteLine(errorMessage);
+
+            IWebElement link = driver.FindElement(By.LinkText("Free Access to InterviewQues/ResumeAssistance/Material"));
+
+            //Validate url of the link text 
+            String hrefAttr = link.GetAttribute("href");
+            String expectedUrl = "https://rahulshettyacademy.com/documents-request";
+
+            Assert.AreEqual(expectedUrl, hrefAttr);
             //driver.Close(); //only one window
             //driver.Quit(); //2windows
 

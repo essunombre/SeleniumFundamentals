@@ -37,3 +37,4 @@ ie: //input[@id='signInBtn']
 
 Jose Jose
 ------------
+I can use the click, to click, the text, to get text.
