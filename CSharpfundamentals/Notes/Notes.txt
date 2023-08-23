@@ -2,7 +2,7 @@
 
 Ok this is going to be for automation
 
-I am using nUnit, I donwloaded the nuGet SeleniumSupport SeleniumWebdriver and WebDriverManager
+I am using nUnit, I donwloaded the nuGet SeleniumSupport SeleniumWebdriver and WebDriverManager, SeleniumExtras
 
 WHERE TO FIND THE RESULTS?
 under Output selecting Tests I can see the execution.
@@ -30,10 +30,23 @@ CSS SELECTOR
 tagname[attribute='value']
 ie: input[id='signInBtn']
 
+For ID I can use #ID and the ID meaning: #terms
+For class I can use the . meaning: .terms
+
+To travel from one to another I do not use / I use space.
+To travel to child use :nth-child(1)
+
 XPATH
 //tagname[@attribute='value']
 ie: //input[@id='signInBtn']
+Now adding a [] with a number will take that element if I have more than one.
+Now to travel to child you use /
 
+
+WAIT TIMES 
+Implicit waits can be declare globally. So the way that this works is that I can declare it to wait for elements to be fonud up to this time, 
+on the other hand if an element is expected to take longer time. What is needed is to create an explicit way meaning that this will be used to find an specific element.
+If I declare something globally I woudl accept elements to take more than lets say 5 seconds. so this is for specific scenarios.
 
 Jose Jose
 ------------

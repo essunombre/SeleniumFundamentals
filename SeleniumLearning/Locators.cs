@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,10 @@ namespace SeleniumLearning
             //driver.Manage().Window.Maximize();
             //driver.Url = "https://thenew.selazar-labs.co.uk/";
 
+            //declaring implicit ait 2 seconds can be declared glbally 
+            //3 seconds
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
             driver.Manage().Window.Maximize();
             driver.Url = "https://rahulshettyacademy.com/loginpagePractise/"; ;
 
@@ -46,11 +51,18 @@ namespace SeleniumLearning
             driver.FindElement(By.Name("password")).SendKeys("123456");
 
             //xpath 
-            driver.FindElement(By.XPath("//input[@id='terms']")).Click();
+            //driver.FindElement(By.XPath("//input[@id='terms']")).Click();
+            //driver.FindElement(By.XPath("//input[@id='terms']")).Click();
+            //If the element does not have information, I can use xpath
+            //driver.FindElement(By.XPath("//div[@class='form-group'][5]/label/span/input")).Click();
+
+            driver.FindElement(By.CssSelector("#terms")).Click();
             //css selector
             driver.FindElement(By.CssSelector("input[id='signInBtn']")).Click();
 
-            Thread.Sleep(3000);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElement)
+            //Thread.Sleep(3000);
             String errorMessage = driver.FindElement(By.ClassName("alert-danger")).Text;
             TestContext.Progress.WriteLine(errorMessage);
 
@@ -60,9 +72,12 @@ namespace SeleniumLearning
             String hrefAttr = link.GetAttribute("href");
             String expectedUrl = "https://rahulshettyacademy.com/documents-request";
 
-            Assert.AreEqual(expectedUrl, hrefAttr);
+            Assert.That(expectedUrl, Is.EqualTo(hrefAttr));
+
+            
+
             //driver.Close(); //only one window
-            //driver.Quit(); //2windows
+            //driver.Quit(); //2 windows
 
         }
     }
