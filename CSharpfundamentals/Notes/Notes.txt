@@ -51,3 +51,11 @@ If I declare something globally I woudl accept elements to take more than lets s
 Jose Jose
 ------------
 I can use the click, to click, the text, to get text.
+
+
+
+
+
+
+Scenarios:
+Static dropdown is the one where I click and I can see the options.

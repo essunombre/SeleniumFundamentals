@@ -60,8 +60,9 @@ namespace SeleniumLearning
             //css selector
             driver.FindElement(By.CssSelector("input[id='signInBtn']")).Click();
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElement)
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
+
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElement(driver.FindElement(By.Id("signInBtn")), "Sign In"));
             //Thread.Sleep(3000);
             String errorMessage = driver.FindElement(By.ClassName("alert-danger")).Text;
             TestContext.Progress.WriteLine(errorMessage);
